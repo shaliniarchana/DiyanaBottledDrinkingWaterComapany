@@ -1,8 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 // Load fonts with custom variables
 const geistSans = Geist({
@@ -24,48 +23,42 @@ const orbitron = Orbitron({
   display: "swap",
 });
 
-// ✅ Use Next.js Metadata API
-export const metadata = {
-  title: "Ceylon EduX",
-  description: "English learning platform for all grades",
-  metadataBase: new URL("https://www.ceylonedux.com"),
 
-  // ✅ Add all favicon variations
+export const metadata = {
+  title: "Diyana Bottled Drinking Water Company",
+  description: "15 mile post, Raja Mawatha, Buttala",
+  //metadataBase: new URL("https://www.diyanawater.com"),
+
+
   icons: {
     icon: [
-      { url: "/new.ico", sizes: "any" },
-      { url: "/32x32.png", type: "image/png", sizes: "32x32" },
-      { url: "/16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/images/new.ico", sizes: "any" },
+      { url: "/images/32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/images/16x16.png", type: "image/png", sizes: "16x16" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "/images/apple-touch-icon.png",
   },
 
   
-
-  // ✅ Google site verification
-  verification: {
-    google: "aJDS6mEd3OAQJWKgsP35iYzS32lQwFz7J6FrIbDRs78",
-  },
-
   openGraph: {
     type: "website",
-    url: "https://www.ceylonedux.com",
-    title: "Ceylon EduX",
-    description: "English learning platform for all grades",
+    //url: "https://www.diyanawater.com",
+    title: "Diyana Bottled Drinking Water Company",
+    description: "15 mile post, Raja Mawatha, Buttala",
     images: [
       {
-        url: "/logo.jpg",
+        url: "/images/logo.png",
         width: 1200,
         height: 630,
-        alt: "Ceylon EduX Logo",
+        alt: "Diyana Bottled Drinking Water Company Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ceylon EduX",
-    description: "English learning platform for all grades",
-    images: ["/logo.jpg"], // same image as OG
+    title: "Diyana Bottled Drinking Water Company",
+    description: "15 mile post, Raja Mawatha, Buttala",
+    images: ["/images/logo.png"], // same image as OG
   },
 };
 
@@ -78,13 +71,13 @@ export default function RootLayout({ children }) {
        <head>
         {/* Favicon links */}
         <link rel="icon" href="/new.ico" sizes="any" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/16x16.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images//16x16.png" />
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
         {/* Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="google-site-verification" content="aJDS6mEd3OAQJWKgsP35iYzS32lQwFz7J6FrIbDRs78" />
+  
       </head>
       
 
@@ -92,8 +85,7 @@ export default function RootLayout({ children }) {
         className={`h-full w-full bg-background text-foreground ${geistSans.variable} ${orbitron.variable} ${geistMono.variable} antialiased transition-all duration-300 ease-in-out`}
       >
         <div className="flex flex-col min-h-screen w-full">{children}</div>
-        <Analytics />
-        <SpeedInsights />
+     
       </body>
     </html>
   );

@@ -367,3 +367,6 @@ a:hover {
 .animate-fadeIn {
   animation: fadeIn 0.4s ease forwards;
 }
+ @keyframes shimmer {
+      100% { transform: translateX(100%); }
+    }

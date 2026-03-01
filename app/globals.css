@@ -3,15 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🌟 Brand Colors */
+
 :root {
   --background: #F9FAFC;
   --foreground: #1F2937;
-  --primary: #1D4ED8;         /* Rich Blue */
-  --secondary: #F59E0B;       /* Warm Amber */
-  --accent: #10B981;          /* Calming Green */
-  --danger: #EF4444;          /* Vibrant Red */
-  --muted: #9CA3AF;           /* Muted Grey */
+  --primary: #1D4ED8;         
+  --secondary: #F59E0B;      
+  --accent: #10B981;         
+  --danger: #EF4444;          
+  --muted: #9CA3AF;         
   --card: #FFFFFF;
   --highlight: #F3F4F6;
   --border: #E5E7EB;
@@ -24,7 +24,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* 🌙 Dark Mode */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f172a;
@@ -56,7 +56,7 @@ a:hover {
   color: var(--accent);
 }
 
-/* 🎬 Animations */
+
 @keyframes fadeInDown {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -75,7 +75,7 @@ a:hover {
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* ✨ Custom Utility Classes */
+
 .bg-card {
   background-color: var(--card);
 }
@@ -136,7 +136,6 @@ a:hover {
   transform-origin: left;
 }
 
-/* globals.css */
 .bg-ocean-bg {
   background-image: linear-gradient(135deg, #0a1f2f, #134d69, #0a1f2f);
   background-repeat: no-repeat;
@@ -190,8 +189,8 @@ a:hover {
 
 .shiny-gradient-card {
   background: white;
-  border-radius: 1.5rem; /* same as rounded-3xl */
-  padding: 1.5rem 2rem; /* same as p-6 sm:p-8 */
+  border-radius: 1.5rem; 
+  padding: 1.5rem 2rem; 
   box-shadow: 0 8px 24px rgba(13, 74, 125, 0.3);
   position: relative;
   overflow: hidden;
@@ -349,7 +348,6 @@ a:hover {
 }
 
 
-/* globals.css */
 @keyframes scaleIn {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }

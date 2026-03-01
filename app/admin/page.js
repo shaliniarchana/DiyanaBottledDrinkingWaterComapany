@@ -41,17 +41,16 @@ export default function AdminPage() {
         <Navbar />
 
         <main className="relative flex-grow flex items-center justify-center py-20 px-6 overflow-hidden">
-          {/* Background Image Layer with Parallax-like feel */}
+
           <div 
             className="absolute inset-0 bg-cover bg-fixed bg-center opacity-30 mix-blend-luminosity pointer-events-none"
             style={{ backgroundImage: "url('/images/blue.jpg')" }}
           />
-          
-          {/* Deep Blue Radial Overlay */}
+
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black pointer-events-none" />
 
           <div className="relative z-10 max-w-7xl w-full mx-auto">
-            {/* Header Content */}
+       
             <div className="text-center mb-20 space-y-4">
               <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-blue-500 drop-shadow-[0_0_20px_rgba(6,182,212,0.5)]">
@@ -66,22 +65,21 @@ export default function AdminPage() {
               </p>
             </div>
 
-            {/* Cards Grid */}
+   
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {cards.map((card, idx) => (
                 <Link key={idx} href={card.href} className="group block outline-none">
                 <div className="relative h-full bg-[#030d16]/95 backdrop-blur-3xl border-[5px] border-cyan-500/30 rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center overflow-hidden transition-colors duration-500 group-hover:border-cyan-400">
                     
-                    {/* Glowing Outer Border (Hidden on mobile until active/Only visible on PC hover) */}
+                  
                     <div className={`absolute -inset-[1px] bg-gradient-to-br ${card.accent} rounded-[2rem] opacity-0 md:group-hover:opacity-100 blur-sm transition-opacity duration-500`} />
                     
-                    {/* Main Card Body */}
+                   
                     <div className="relative h-full bg-[#030d16]/90 backdrop-blur-3xl border border-white/10 rounded-[2rem] p-8 md:p-10 flex flex-col items-center text-center overflow-hidden">
-                      
-                      {/* Internal Scanning Light Animation */}
+           
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-scan pointer-events-none" />
 
-                      {/* Icon */}
+           
                       <div className={`mb-8 p-5 rounded-2xl bg-gradient-to-br ${card.accent} text-white text-4xl shadow-2xl ${card.shadow} transform transition-transform duration-700 md:group-hover:rotate-[360deg]`}>
                         {card.icon}
                       </div>
@@ -94,7 +92,7 @@ export default function AdminPage() {
                         {card.desc}
                       </p>
 
-                      {/* Professional Button UI */}
+                    
                       <div className={`inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase py-3 px-6 rounded-full border border-white/10 bg-white/5 group-hover:bg-white group-hover:text-black transition-all duration-300`}>
                         Manage Now <FaArrowRight />
                       </div>

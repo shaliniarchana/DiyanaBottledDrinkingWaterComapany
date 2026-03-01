@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
-// Firebase imports
+
 import { auth, db } from "../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
@@ -20,7 +20,7 @@ export default function Navbar() {
   const router = useRouter();
   const dropdownRef = useRef(null);
 
-  // Close dropdown if clicking outside
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -37,13 +37,13 @@ export default function Navbar() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
-  // --- Updated Auth and Role Check ---
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (u) => {
       if (u && u.emailVerified) {
         setIsLoggedIn(true);
 
-        // 1. Hardcoded Executive Check
+
         if (u.email === "sliitshalini@gmail.com") {
           setIsExecutive(true);
           setIsTeacher(false);
@@ -51,18 +51,18 @@ export default function Navbar() {
         }
 
         try {
-          // 2. Fetch from consolidated "users" collection
+    
           const userDoc = await getDoc(doc(db, "users", u.uid));
           
           if (userDoc.exists()) {
             const userData = userDoc.data();
             const role = userData.role;
 
-            // Update UI states based on role string
+          
             
             setIsExecutive(role === "executive" || role === "admin");
           } else {
-            // If no doc exists yet (fallback)
+     
     
             setIsExecutive(false);
           }
@@ -109,7 +109,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Loading Spinner Code remains the same... */}
+
       {loading && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-[60]">
            <div className="loader-ring"></div>
@@ -123,7 +123,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
+       
         <div className="hidden md:flex gap-6 items-center">
           {navItems
             .filter(item => {
@@ -166,13 +166,13 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile Toggle */}
+       
         <button className="md:hidden p-2 text-blue-400" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? "✕" : "☰"}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+
       {mobileMenuOpen && (
         <div className="md:hidden fixed top-[80px] left-0 w-full bg-[#0A0F1C] border-b border-blue-800 z-40 max-h-screen overflow-y-auto pb-10">
           <nav className="flex flex-col gap-2 py-4 px-6">

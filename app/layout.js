@@ -3,7 +3,7 @@ import { Orbitron } from "next/font/google";
 import "./globals.css";
 
 
-// Load fonts with custom variables
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -58,7 +58,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Diyana Bottled Drinking Water Company",
     description: "15 mile post, Raja Mawatha, Buttala",
-    images: ["/images/logo.png"], // same image as OG
+    images: ["/images/logo.png"],
   },
 };
 
@@ -69,13 +69,13 @@ export default function RootLayout({ children }) {
       className="h-full scroll-smooth bg-background text-foreground"
     >
        <head>
-        {/* Favicon links */}
+       
         <link rel="icon" href="/new.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images//16x16.png" />
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
-        {/* Manifest */}
+   
         <link rel="manifest" href="/manifest.json" />
   
       </head>

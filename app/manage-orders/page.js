@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Gallery() {
-  // Add your image paths here
+ 
   const images = [
     { src: "/images/bottle-20l.jpg", alt: "20L Bottled Water" },
  
@@ -11,13 +11,13 @@ export default function Gallery() {
 
   return (
     <div className="min-h-screen bg-white text-black p-8 font-sans">
-      {/* Navigation / Header */}
+     
       <header className="mb-12 border-b border-black pb-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold uppercase tracking-tighter">Diyana Gallery</h1>
 
       </header>
 
-      {/* Simple Grid */}
+    
       <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {images.map((img, index) => (
           <div key={index} className="group relative overflow-hidden border border-black">

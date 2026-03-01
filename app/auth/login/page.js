@@ -65,7 +65,7 @@ export default function LoginPage() {
     }
   }, []);
 
-  // --- Core Login Logic ---
+ 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -75,7 +75,7 @@ export default function LoginPage() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // 1. Check Admin Collection
+
       const adminDoc = await getDoc(doc(db, "admins", user.uid));
       if (adminDoc.exists()) {
         localStorage.setItem("email", email);
@@ -84,9 +84,9 @@ export default function LoginPage() {
       Swal.fire({
   icon: "success",
   title: "Welcome Admin! 🎉",
-  background: "#000814", // Deep Black-Blue
-  color: "#E0F7FA",      // Cyan Tinted White
-  iconColor: "#00E5FF",  // Cyan Icon
+  background: "#000814",
+  color: "#E0F7FA",     
+  iconColor: "#00E5FF",  
   timer: 2000,
   showConfirmButton: false,
   customClass: {
@@ -94,11 +94,11 @@ export default function LoginPage() {
     title: "font-sans tracking-wide"
   }
 });
-        router.push("/admin"); // Redirect to admin dashboard
+        router.push("/admin"); 
         return;
       }
 
-      // 2. Check Regular Users Collection
+
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         localStorage.setItem("email", email);
@@ -108,18 +108,18 @@ export default function LoginPage() {
   icon: "success",
   title: "Welcome back! 🎉",
   text: "Refreshing your session...",
-  background: "#000814", // Deep Midnight Blue
-  color: "#E0F7FA",      // Light Cyan text
-  iconColor: "#00E5FF",  // Bright Cyan success icon
+  background: "#000814",
+  color: "#E0F7FA",      
+  iconColor: "#00E5FF", 
   timer: 2000,
   showConfirmButton: false,
-  backdrop: `rgba(0, 8, 20, 0.8)`, // Darker overlay behind the alert
+  backdrop: `rgba(0, 8, 20, 0.8)`, 
   customClass: {
     popup: "border border-cyan-500/50 shadow-[0_0_25px_rgba(0,229,255,0.2)]",
     title: "text-2xl font-bold tracking-tight"
   }
 });
-        router.push("/"); // Redirect to homepage
+        router.push("/");
         return;
       }
 
@@ -244,7 +244,7 @@ export default function LoginPage() {
         </div>
       </main>
 
-      {/* Footer & Modal logic kept as per original design... */}
+     
       
       {showForgotPasswordModal && (
         <Modal title="Reset Password" onClose={() => setShowForgotPasswordModal(false)}>

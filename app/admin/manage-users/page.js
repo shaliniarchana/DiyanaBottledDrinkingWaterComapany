@@ -15,7 +15,7 @@ export default function AdminUserManagement() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    // 1. Fetch from 'users' collection directly
+
     const usersQuery = query(collection(db, "users"), orderBy("createdAt", "desc"));
 
     const unsubscribe = onSnapshot(usersQuery, (snapshot) => {
@@ -31,7 +31,7 @@ export default function AdminUserManagement() {
     return () => unsubscribe();
   }, []);
 
-  // 2. Filter Logic for Users
+
   const filteredUsers = useMemo(() => {
     const term = searchTerm.toLowerCase();
     if (!term) return users;
@@ -40,7 +40,7 @@ export default function AdminUserManagement() {
       return (
         user.displayName?.toLowerCase().includes(term) ||
         user.email?.toLowerCase().includes(term) ||
-        user.contactNumber?.toLowerCase().includes(term) ||
+        user.contactNumbers?.toLowerCase().includes(term) ||
         user.role?.toLowerCase().includes(term)
       );
     });
@@ -50,7 +50,7 @@ export default function AdminUserManagement() {
     <>
       <Navbar />
       <div
-        className="relative min-h-screen bg-center bg-cover mt-26 mb-30 bg-fixed"
+        className="relative min-h-screen bg-center bg-cover mt-30  bg-fixed"
         style={{
           backgroundImage: "url('/blue.jpg')",
           backgroundBlendMode: "overlay",
@@ -60,7 +60,7 @@ export default function AdminUserManagement() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#05192bcc] via-[#062b4acc] to-[#0a436bcc] backdrop-blur-sm" />
 
         <main
-          className="relative z-10 max-w-7xl mx-auto p-8 pt-26 pb-12 text-cyan-100 min-h-screen flex flex-col border-4 border-cyan-500 rounded-3xl bg-opacity-30 backdrop-blur-md"
+          className="relative z-10 max-w-7xl mx-auto p-8 mb-15 text-cyan-100 min-h-screen flex flex-col border-4 border-cyan-500 rounded-3xl bg-opacity-30 backdrop-blur-md"
           style={{ backgroundColor: "rgba(5, 22, 43, 0.75)" }}
         >
           <AnimatePresence mode="wait">
@@ -79,15 +79,15 @@ export default function AdminUserManagement() {
               </motion.div>
             ) : (
               <>
-                <motion.h1
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-4xl md:text-6xl font-extrabold mb-12 text-center text-cyan-300 drop-shadow-[0_0_15px_rgba(14,165,233,0.9)]"
-                >
-                  Manage Users
-                </motion.h1>
+                 <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-extrabold mb-12 text-center text-cyan-300 drop-shadow-[0_0_15px_rgba(14,165,233,0.9)] uppercase italic"
+            >
+              Manage Users
+            </motion.h1>
 
-                {/* Search Bar */}
+       
                 <div className="flex justify-center mb-10">
                   <div className="relative w-full sm:w-1/2">
                     <input
@@ -137,7 +137,7 @@ export default function AdminUserManagement() {
                               <span className="font-bold">{user.displayName || "N/A"}</span>
                             </td>
                             <td className="p-4 text-sm">{user.email}</td>
-                            <td className="p-4 text-sm">{user.contactNumber || "-"}</td>
+                            <td className="p-4 text-sm">{user.contactNumbers || "-"}</td>
                             <td className="p-4">
                               <span className={`px-3 py-1 rounded-full text-xs font-black uppercase ${
                                 user.role === 'admin' ? 'bg-red-500/20 text-red-400 border border-red-500/50' : 'bg-green-500/20 text-green-400 border border-green-500/50'

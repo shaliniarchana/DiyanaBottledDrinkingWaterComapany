@@ -24,7 +24,6 @@ import {
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 
-// --- Constants & Helper Functions ---
 const defaultAvatars = [
   "/avatars/avatar1.png", "/avatars/avatar2.png", "/avatars/avatar3.png",
   "/avatars/avatar4.png", "/avatars/avatar5.png", "/avatars/avatar6.png",
@@ -35,7 +34,7 @@ const defaultAvatars = [
   "/avatars/avatar20.png", "/avatars/avatar21.png",
 ];
 
-// Changed to only support "user" for public signup
+
 const sanitizeRole = (role) => {
   return "user"; 
 };
@@ -55,11 +54,11 @@ function Modal({ title, children, onClose }) {
 export default function SignupPage() {
   const router = useRouter();
   
-  // --- States ---
+
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user"); // Defaulted to user
+  const [role, setRole] = useState("user"); 
   const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -67,7 +66,6 @@ export default function SignupPage() {
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [modalInfo, setModalInfo] = useState({ open: false, title: "", content: null });
   
-  // Profile States
   const [profileFile, setProfileFile] = useState(null);
   const [profileURL, setProfileURL] = useState("");
   const [avatarIndex, setAvatarIndex] = useState(null);
@@ -75,7 +73,6 @@ export default function SignupPage() {
   const [activeSignupMethod, setActiveSignupMethod] = useState(null);
   const [filePreviewURL, setFilePreviewURL] = useState("");
 
-  // --- Profile Image Logic ---
   const getProfileURL = async (uid) => {
     if (profileFile) {
       const imgRef = ref(storage, `profiles/${uid}`);
@@ -86,7 +83,7 @@ export default function SignupPage() {
   };
 
   const saveUserData = async (uid, userData) => {
-    // Everything goes to the "users" collection
+   
     await setDoc(doc(db, "users", uid), {
       ...userData,
       uid,
@@ -103,7 +100,7 @@ export default function SignupPage() {
     setProfileFile(null);
   };
 
-  // --- Main Signup Handler ---
+
   const handleEmailSignup = async (e) => {
      e.preventDefault();
   if (activeSignupMethod && activeSignupMethod !== "email") {
@@ -146,7 +143,7 @@ export default function SignupPage() {
         Please verify your email to start using your account by following these steps:
       </p>
 
-      {/* Step 1 */}
+      
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-cyan-500 text-white font-bold text-sm">
           1
@@ -156,7 +153,7 @@ export default function SignupPage() {
         </p>
       </div>
 
-      {/* Step 2 */}
+     
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-cyan-500 text-white font-bold text-sm">
           2
@@ -166,7 +163,7 @@ export default function SignupPage() {
         </p>
       </div>
 
-      {/* Step 3 */}
+     
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-cyan-500 text-white font-bold text-sm">
           3
@@ -176,7 +173,7 @@ export default function SignupPage() {
         </p>
       </div>
 
-      {/* Step 4 */}
+
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0 h-6 w-6 flex items-center justify-center rounded-full bg-cyan-500 text-white font-bold text-sm">
           4
@@ -189,7 +186,7 @@ export default function SignupPage() {
   ),
 });
 
-      // Poll for verification
+     
       const checkInterval = setInterval(async () => {
         const user = auth.currentUser;
         if (user) {
@@ -217,7 +214,7 @@ export default function SignupPage() {
     }
   };
 
-  // Avatar Preview Effect
+
   useEffect(() => {
     if (profileFile) {
       const url = URL.createObjectURL(profileFile);
@@ -240,7 +237,7 @@ export default function SignupPage() {
             {displayName ? <span className="text-center text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-cyan-400 via-green-400 to-yellow-300 bg-clip-text text-transparent tracking-widest animate-pulse">Welcome {displayName}</span> : "Join With Us"}
           </h2>
 
-          {/* Profile Preview */}
+    
           <div className="flex justify-center mb-4">
             <Image 
               src={previewImage || "/avatars/avatar13.png"} 
@@ -302,7 +299,6 @@ export default function SignupPage() {
       </main>
 
       {/* Avatar Modal & Footer Logic... (same as your original) */}
-
       {showAvatarModal && (
         <div className="fixed inset-0 backdrop-blur-md bg-black/60 flex items-center justify-center z-50" onClick={() => setShowAvatarModal(false)}>
           <div className="bg-blue-900 p-6 rounded-3xl grid grid-cols-4 gap-4 max-w-md mx-auto" onClick={(e) => e.stopPropagation()}>
@@ -315,7 +311,7 @@ export default function SignupPage() {
         </div>
       )}
           <Footer />
-             {/* Modal Popup */}
+   
       {modalInfo.open && (
         <Modal
           title={modalInfo.title}

@@ -32,7 +32,7 @@ export default function Footer() {
     <footer className="bg-[#06111e] text-white py-8 border-t border-cyan-600 shadow-inner text-sm sm:text-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row flex-wrap justify-between gap-6 sm:gap-8 items-center sm:items-start">
 
-        {/* Branding & Contact */}
+     
         <div className="flex flex-col items-center sm:items-start flex-1 min-w-[200px] text-center sm:text-left">
           <div className="flex items-center flex-col sm:flex-row">
             <img 
@@ -46,7 +46,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Hotline & Email */}
+    
           <div className="mt-9 flex flex-col items-center sm:items-start gap-1 text-gray-300">
             <a href="mailto:diyanabottleddrinkingwater@gmail.com" className="flex items-center gap-1 hover:text-white">
               <FaEnvelope /> diyanabottleddrinkingwater@gmail.com
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Resources & Links */}
+
         <div className="flex-1 min-w-[200px] flex flex-col gap-2 text-gray-300 items-center sm:items-start text-center sm:text-left">
           <a href="/Terms" className="hover:text-white transition-colors">Terms & Conditions</a>
           <a href="/Privacy" className="hover:text-white transition-colors">Privacy Policy</a>
@@ -80,7 +80,7 @@ export default function Footer() {
 
       </div>
 
-      {/* Copyright */}
+     
       <div className="mt-6 text-center text-gray-500 text-xs sm:text-sm">
         © {new Date().getFullYear()} Diyana Bottled Drinking Water Company (Pvt) Ltd. All rights reserved.
       </div>
